@@ -15,6 +15,33 @@ Tänavasõidueksamil tuleb eksamineeritavate grupil järjestikku sõita ees ja t
 
 Teooriaeksam peab olema sooritatud enne platsieksamit. Platsieksam peab olema sooritatud enne tänavasõidueksamit. Platsieksami osade läbimise järjekord pole tähtis.
 
+## Rakenduse lehed
+
+### Jalgrattalubade taotleja registreerimine
+
+Sisestatakse taotleja ees- ja perekonnanimi. Andmed talletatakse kirjena tabelisse.
+
+### Teooriaeksam
+
+Nähakse loetelu registreeritud osalejatest, kes pole veel teooriaeksamil tulemust saanud.
+Eksamiülesande lahendanu nime juurde saab kirjutada tulemuse.
+
+### Slaalom
+
+Näha on teooriaeksami läbinud eksamineeritavad, kel veel pole kirjas tulemust slaalomi kontrollpunkti kohta. Saab soorituse määrata kas õnnestunuks või ebaõnnestunuks.
+
+### Ringtee
+
+Näha on teooriaeksami läbinud eksamineeritavad, kel pole veel kirjas tulemust ringtee kontrollpunkti kohta. Saab soorituse määrata kas õnnestunuks või ebaõnnestunuks.
+
+### Tänavasõidueksam
+
+Näha on nimekiri eksamineeritavatest, kes on läbinud platsieksami (ehk siis slaalomi ja ringtee kontrollpunkti) ning pole veel kirja saanud tulemust tänavasõidueksamil. Iga eksamineeritava kohta saab määrata tulemuse kas õnnestunuks või ebaõnnestunuks.
+
+### Vormistamise leht
+
+Näha on kõikide osalejate tulemused. Kel kõik etapid korras, saab loa kätte ja see pannakse kirja.
+
 ## Tehnoloogiad
  - PHP
  - MariaDB
