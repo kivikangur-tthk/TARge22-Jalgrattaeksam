@@ -42,6 +42,10 @@ Näha on nimekiri eksamineeritavatest, kes on läbinud platsieksami (ehk siis sl
 
 Näha on kõikide osalejate tulemused. Kel kõik etapid korras, saab loa kätte ja see pannakse kirja.
 
+## Lehe mall (eskiis)
+
+[https://app.moqups.com/G34Hc2i0KznUT2GYIIUEZz6IQCfvyFDu/view/page/a57f5c842](https://app.moqups.com/G34Hc2i0KznUT2GYIIUEZz6IQCfvyFDu/view/page/a57f5c842)
+
 ## Tehnoloogiad
  - PHP
  - MariaDB
