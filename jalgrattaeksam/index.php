@@ -3,6 +3,8 @@ require($_SERVER['DOCUMENT_ROOT']."/../config.php");
 
 global $yhendus;
 
+require("functions.php");
+
 include("header.php");
 
 if(isset($_REQUEST["page"])){
