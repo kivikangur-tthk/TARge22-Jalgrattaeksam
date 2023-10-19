@@ -17,6 +17,7 @@ if(!empty($_REQUEST["teooriatulemus"])){
     $kask->execute();
 }
 if(!empty($_REQUEST["korras_id"]) && isset($_REQUEST["page"])) {
+    // TODO fix this security issue
     $kask=$yhendus->prepare(   
     "UPDATE jalgrattaeksam SET ".clean($_REQUEST["page"])."=1 WHERE id=?");   
     $kask->bind_param("i", $_REQUEST["korras_id"]);    
