@@ -27,6 +27,7 @@ nav a.active {
 }
 
 input[type=text],
+input[type=number],
 select {
     width: 100%;
     padding: 12px 20px;
@@ -46,6 +47,11 @@ input[type=submit] {
     border: none;
     border-radius: 4px;
     cursor: pointer;
+}
+
+td input {
+    width: initial !important;
+    margin: initial !important;
 }
 
 input[type=submit]:hover {
