@@ -2,7 +2,30 @@
 function clean($userInput) {
     return htmlspecialchars($userInput);
 }
-if(isSet($_REQUEST["register"])){
+
+function asenda($nr){   
+    if($nr==-1){return ".";} //tegemata   
+    if($nr== 1){return "korras";}   
+    if($nr== 2){return "ebaõnnestunud";}
+    return "Tundmatu number";  
+}
+
+function updateDriving($part, $id, $result) {
+    global $yhendus;
+    $updateSql = [
+        "slalom" =>     "UPDATE jalgrattaeksam SET slaalom=? WHERE id=?",
+        "roundabout" => "UPDATE jalgrattaeksam SET ringtee=? WHERE id=?",
+        "street" =>     "UPDATE jalgrattaeksam SET t2nav=? WHERE id=?"
+    ];
+
+    if(in_array($part,array_keys($updateSql))){
+        $kask=$yhendus->prepare( $updateSql[$part] );   
+        $kask->bind_param("ii", $result, $id);    
+        $kask->execute();
+    }
+}
+
+if(isSet($_REQUEST["register"],$_REQUEST["firstName"],$_REQUEST["lastName"])){
     $firstName =clean($_REQUEST["firstName"]);
     $kask=$yhendus->prepare("INSERT INTO jalgrattaeksam(eesnimi, perekonnanimi) VALUES (?, ?)");
     $kask->bind_param("ss", $firstName , clean($_REQUEST["lastName"]));
@@ -17,14 +40,16 @@ if(!empty($_REQUEST["teooriatulemus"])){
     $kask->execute();
 }
 if(!empty($_REQUEST["korras_id"]) && isset($_REQUEST["page"])) {
-    $kask=$yhendus->prepare(   
-    "UPDATE jalgrattaeksam SET ".clean($_REQUEST["page"])."=1 WHERE id=?");   
-    $kask->bind_param("i", $_REQUEST["korras_id"]);    
-    $kask->execute();   
-}   
-if(!empty($_REQUEST["vigane_id"])){   
-    $kask=$yhendus->prepare(   
-    "UPDATE jalgrattaeksam SET slaalom=2 WHERE id=?");   
-    $kask->bind_param("i", $_REQUEST["vigane_id"]);   
-    $kask->execute();   
+    updateDriving($_REQUEST["page"],$_REQUEST["korras_id"],1);
+}
+if(!empty($_REQUEST["vigane_id"]) && isset($_REQUEST["page"])) {
+    updateDriving($_REQUEST["page"],$_REQUEST["korras_id"],2);
+}
+if(!empty($_REQUEST["vormistamine_id"])){
+    $kask=$yhendus->prepare("UPDATE jalgrattaeksam SET luba = now()  WHERE id=?");
+    $kask->bind_param("i", $_REQUEST["vormistamine_id"]);
+    $kask->execute();
+    $yhendus->close();
+    header("Location: $_SERVER[PHP_SELF]?page=license");
+    exit();   
 }

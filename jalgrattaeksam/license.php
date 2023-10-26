@@ -5,13 +5,7 @@ $kask=$yhendus->prepare(
     slaalom, ringtee, t2nav, luba FROM jalgrattaeksam;");   
     $kask->bind_result($id, $eesnimi, $perekonnanimi, $teooriatulemus,   
     $slaalom, $ringtee, $t2nav, $luba);   
-    $kask->execute();   
-    function asenda($nr){   
-        if($nr==-1){return ".";} //tegemata   
-        if($nr== 1){return "korras";}   
-        if($nr== 2){return "ebaõnnestunud";}
-        return "Tundmatu number";  
-    }
+    $kask->execute();
 ?>
 <table>
     <tr>
